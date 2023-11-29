@@ -1,0 +1,49 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+  <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+  <id>com.sanding.CopyCode</id>
+  <!-- Public plugin name should be written in Title Case.
+       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+  <name>CopyCode</name>
+
+  <version>1</version>
+
+  <idea-version since-build="2023.2.5"/>
+  <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+  <vendor email="Mangusten0k@yandex.ru" url="https://youtu.be/dQw4w9WgXcQ?si=UW4SOKNfenh5dkaf">Mangust1333</vendor>
+
+  <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+       Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+  <description><![CDATA[
+    Sand your code to somebody with this plugin<br>
+    This program allows you doing next things:<br>
+    <em>ctrl + shift + c</em> Cooperating text with autoformatting<br>
+    <em>ctrl + shift + x</em> Cut text with formatting copying<br>
+    <em>ctrl + shift + p</em> Forward formatted text in a telegram]]></description>
+
+
+  <!-- Product and plugin compatibility requirements.
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.json</depends>
+
+  <!-- Extension points defined by the plugin.
+       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+  <extensions defaultExtensionNs="com.intellij">
+
+  </extensions>
+
+  <actions>
+    <action id="CopyCode" class="CopyCode" text="Copy Selected" description="Copy the code with changes">
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift C"/>
+    </action>
+    <action id="CutCopyCode" class="CopyCode" text="Cut Selected" description="Send to somebody your code with changes">
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift X"/>
+    </action>
+    <action id="SandCopyCode" class="CopyCode" text="Send With Copy Selected" description="Send to somebody your code with changes">
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift P"/>
+    </action>
+  </actions>
+</idea-plugin>
