@@ -21,8 +21,8 @@ import java.nio.charset.StandardCharsets;
 public class CopyCode extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        DataContext dataContext = e.getDataContext();
 
+        DataContext dataContext = e.getDataContext();
         Editor editor = CommonDataKeys.EDITOR.getData(dataContext);
         if (editor == null) {
             return;
@@ -70,7 +70,7 @@ public class CopyCode extends AnAction {
             } else {
                 Messages.showWarningDialog("Too many letters to forward", "Warning");
             }
-        } else if("Cut Selected".equals(e.getPresentation().getText())){
+        } else if ("Cut Selected".equals(e.getPresentation().getText())) {
             StringSelection selection = new StringSelection(message);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(selection, null);
@@ -104,3 +104,4 @@ public class CopyCode extends AnAction {
         }
     }
 }
+
