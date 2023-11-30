@@ -1,6 +1,6 @@
 # openTelegramSharePage
 
-Публичный метод, создающий https запрос на официальную страницу Telegram: Share web page `https://t.me/share/url?url="Наш_текст"`
+Публичный метод, создающий https запрос на официальную страницу Telegram: Share web page `https://t.me/share/url?url="Наш_текст_в_utf8_кодировке"`
 
 # Входные данные
 String `message` - пересылаемое сообщение

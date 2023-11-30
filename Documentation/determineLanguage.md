@@ -9,12 +9,12 @@
 ## Примеры вызова
 1. determineLanguage(virtualFile)
     
-    > Здесь virtualFile.getExtension() вернёт cpp
+    > Здесь virtualFile является объектом `VirtualFile`, а также virtualFile.getExtension() вернёт cpp
 
     Выходные данные: `java`
 2. determineLanguage(virtualFile)
 
-   > Здесь virtualFile.getExtension() вернёт null
+   > Здесь virtualFile является объектом `VirtualFile`, а также virtualFile.getExtension() вернёт null
 
    Выходные данные: `null`
 
