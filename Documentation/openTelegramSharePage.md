@@ -8,4 +8,4 @@ String `message` - пересылаемое сообщение
 Открытие страницы Telegram: Share web page в браузере
 # Пример вызова
 Входные данные:<br>`openTelegramSharePage("```cpp\nmandarinka\n\```")`<br>
-Результат работы:<br> открытие страницы в браузере `https://t.me/share/url?url=%60%60%60cpp%0Amandarinka%0A%60%60%60`
+Результат работы:<br> открытие страницы в браузере<br> `https://t.me/share/url?url=%60%60%60cpp%0Amandarinka%0A%60%60%60`
