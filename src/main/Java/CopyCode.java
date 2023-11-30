@@ -98,7 +98,7 @@ public class CopyCode extends AnAction {
             Desktop desktop = Desktop.getDesktop();
             if (Desktop.isDesktopSupported() && desktop.isSupported(Desktop.Action.BROWSE)) {
                 desktop.browse(new URI(url));
-            } else { // Platform is not allowing to open browser
+            } else { // Платформа не может открыть браузер
                 Messages.showErrorDialog("Your Ide isn't have browser access", "Error 404");
             }
         } catch (IOException | URISyntaxException e) {
