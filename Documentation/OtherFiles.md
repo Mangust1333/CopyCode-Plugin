@@ -29,4 +29,5 @@
 ## 5. [`.gitignore`](https://github.com/Mangust1333/CopyCode-Plugin/blob/b0e8f2eb6e83dbfcc70ee7f586b6f3ff626d3b75/.gitignore)
 
 ### Описание
+
 - `.gitignore` - файл, определяющий игнорируемые Git файлы и директории, адаптированный для проекта, настроенного исключительно под CLion.
