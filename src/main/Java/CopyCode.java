@@ -20,9 +20,9 @@ import java.nio.charset.StandardCharsets;
 
 public class CopyCode extends AnAction {
     @Override
-    public void actionPerformed(@NotNull AnActionEvent e) {
-
-        DataContext dataContext = e.getDataContext();
+    public void actionPerformed(@NotNull AnActionEvent event) {
+        // обрабатывает случаи нажатия клавиш
+        DataContext dataContext = event.getDataContext();
         Editor editor = CommonDataKeys.EDITOR.getData(dataContext);
         if (editor == null) {
             return;
@@ -59,22 +59,22 @@ public class CopyCode extends AnAction {
         String message = "```" + language + "\n" + selectedText + "\n```";
 
 
-        if ("Copy Selected".equals(e.getPresentation().getText())) {
+        if ("Copy Selected".equals(event.getPresentation().getText())) { // ctrl + shift + c
             StringSelection selection = new StringSelection(message);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(selection, null);
-        } else if ("Send With Copy Selected".equals(e.getPresentation().getText())) {
+        } else if ("Send With Copy Selected".equals(event.getPresentation().getText())) { // ctrl + shift + x
             int maximum_telegram_massage = 1150;
             if (message.length() < maximum_telegram_massage) {
                 openTelegramSharePage(message);
             } else {
                 Messages.showWarningDialog("Too many letters to forward", "Warning");
             }
-        } else if ("Cut Selected".equals(e.getPresentation().getText())) {
+        } else if ("Cut Selected".equals(event.getPresentation().getText())) { // ctrl + shift + p
             StringSelection selection = new StringSelection(message);
             Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
             clipboard.setContents(selection, null);
-            WriteCommandAction.runWriteCommandAction(e.getProject(), () -> {
+            WriteCommandAction.runWriteCommandAction(event.getProject(), () -> {
                 editor.getDocument().deleteString(selectionModel.getSelectionStart(), selectionModel.getSelectionEnd());
             });
         }
@@ -82,6 +82,7 @@ public class CopyCode extends AnAction {
     }
 
     private String determineLanguage(VirtualFile virtualFile) {
+        // Принимает на вход представление файла и возвращает его расширение
         String extension = virtualFile.getExtension();
         if (extension != null) {
             return extension;
@@ -90,6 +91,7 @@ public class CopyCode extends AnAction {
     }
 
     private void openTelegramSharePage(String message) {
+        // Принимает на вход сообщение которое мы хотим передать и передаёт его в телеграмм
         try {
             String encodedMessage = URLEncoder.encode(message, StandardCharsets.UTF_8.toString());
             String url = "https://t.me/share/url?url=" + encodedMessage;
